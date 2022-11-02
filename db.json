@@ -1,4 +1,20 @@
 {
+  "users": [
+    {
+      "id": "bd66c02e-afb7-35b9-2dc3-ac42c1442989",
+      "username": "admin",
+      "email": "admin@abv.bg",
+      "password": "123456",
+      "role": "User"
+    },
+    {
+      "id": "07bc35c1-588e-3af1-97f1-8d1d05a676b0",
+      "username": "company",
+      "email": "company@abv.bg",
+      "password": "123456",
+      "role": "Company"
+    }
+  ],
   "jobs": [
     {
       "title": "Junior C#",
