@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { UUID } from 'angular2-uuid';
-import { map } from 'rxjs';
 import { JobModel } from '../models/job.model';
 import { Observable } from 'rxjs';
 

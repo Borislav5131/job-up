@@ -1,5 +1,5 @@
 <div class="text-center">
-  <div class="btn-group">
+  <div class="btn-group" *ngIf="isCompany">
     <button class="btn btn-primary" type="button" routerLink="create">Create</button>
   </div>
 </div>
@@ -22,7 +22,7 @@
                   <p class="heading">{{ job.description }}</p>
                   <div class="mt-5">
                       <div class="mt-3"> <span class="text1">{{ job.likes }} <span class="text2">likes</span></span> </div>
-                      <div class="mt-3">
+                      <div class="mt-3" *ngIf="isCompany">
                         <button type="button" class="btn btn-warning" (click)="editJob(job?.id)">Edit</button>
                         <button type="button" class="btn btn-danger" (click)="deleteJob(job.id)">Delete</button>
                       </div>

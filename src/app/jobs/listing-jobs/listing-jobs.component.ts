@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { JobModel } from 'src/app/shared/models/job.model';
 import { JobsService } from 'src/app/shared/services/jobs.service';
 
 @Component({
@@ -10,11 +9,13 @@ import { JobsService } from 'src/app/shared/services/jobs.service';
 })
 export class ListingJobsComponent implements OnInit {
   jobs!: any;
+  isCompany!: boolean;
 
   constructor(private jobsService: JobsService,
               private router: Router) { }
 
   ngOnInit(): void {
+    localStorage.getItem('role') === 'Company' ? this.isCompany = true : false;
     this.jobsService.getAllJobs().subscribe({
       next: (response: any) => {
         this.jobs = response;
