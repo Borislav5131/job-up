@@ -19,4 +19,14 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
+  editUser() {
+    let userId = localStorage.getItem('userId');
+
+    if(!userId) {
+      this.logOut();
+    }
+
+    this.router.navigate([`user/edit/${userId}`]);
+  }
+
 }

@@ -1,0 +1,12 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()" *ngIf="editForm">
+  <label>Name</label>
+  <input type="text" formControlName="username" /><br />
+
+  <label>Type</label>
+  <input type="text" formControlName="email" /><br />
+
+  <label>Sport</label>
+  <input type="password" formControlName="password" /><br />
+
+  <button type="submit" [disabled]="!editForm.valid">Submit</button>
+</form>

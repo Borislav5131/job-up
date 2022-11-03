@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateJobComponent } from './jobs/create-job/create-job.component';
 import { ListingJobsComponent } from './jobs/listing-jobs/listing-jobs.component';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { EditUserComponent } from './users/edit-user/edit-user.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent, canActivate:[AuthGuard]},
@@ -17,6 +18,7 @@ const routes: Routes = [
     ], canActivate:[AuthGuard]},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'user/edit/:id', component: EditUserComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
