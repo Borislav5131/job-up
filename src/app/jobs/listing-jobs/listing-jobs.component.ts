@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { JobModel } from 'src/app/shared/models/job.model';
 import { JobsService } from 'src/app/shared/services/jobs.service';
 
 @Component({
@@ -33,5 +34,18 @@ export class ListingJobsComponent implements OnInit {
 
   editJob(id: string) {
     this.router.navigate([`jobs/edit/${id}`]);
+  }
+
+  likeJob(job: JobModel) {
+    let userId = localStorage.getItem('userId');
+
+    if(userId) {
+      if(job.likes.includes(userId)) {
+        alert('You already like this job');
+      } else {
+        job.likes.push(userId);
+        this.jobsService.putJob(job).subscribe();
+      }
+    }
   }
 }

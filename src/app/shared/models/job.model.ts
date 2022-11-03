@@ -5,7 +5,7 @@ export interface JobModel {
   id: string,
   title: string,
   description: string,
-  likes: number,
+  likes: string[],
   jobType : JobType,
   jobCategory: JobCategory,
 }

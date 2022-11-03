@@ -15,7 +15,7 @@ export class JobsService {
   //create
   postJob(data: JobModel): Observable<JobModel> {
     data.id = UUID.UUID();
-    data.likes = 0;
+    data.likes = [];
 
     return this.httpClient.post<JobModel>(this.url, data);
   }
