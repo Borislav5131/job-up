@@ -5,7 +5,14 @@
         <div class="d-flex">
             <button class="btn btn-success" routerLink="">Dashboard</button>&nbsp;
             <button class="btn btn-success" routerLink="jobs">Jobs</button>&nbsp;
-            <button class="btn btn-warning" (click)="logOut()">Logout</button>
+            <div class="dropdown">
+              <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                Menu
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" (click)="logOut()">Logout</a></li>
+              </ul>
+            </div>
         </div>
     </div>
 </nav>

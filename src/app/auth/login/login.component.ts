@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
         console.log("Login successful");
         this.router.navigate(['']);
         localStorage.setItem('role', user[0].role);
+        localStorage.setItem('userId', user[0].id);
       } else {
         alert("Username or password is wrong");
         this.ngOnInit();
