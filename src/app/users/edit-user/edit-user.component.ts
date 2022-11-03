@@ -12,14 +12,15 @@ import { UserService } from 'src/app/shared/services/user.service';
 export class EditUserComponent implements OnInit {
   editForm!: FormGroup;
   user!: User;
+  userId!: string;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
-    let userId = localStorage.getItem('userId');
+    this.userId = localStorage.getItem('userId')!;
 
-    if(userId) {
-      this.userService.getUserById(userId).subscribe({
+    if(this.userId) {
+      this.userService.getUserById(this.userId).subscribe({
         next: (response: User) => {
           this.user = response;
 
@@ -54,6 +55,17 @@ export class EditUserComponent implements OnInit {
       next: () => {
         alert('Successfully updated user!');
         this.router.navigate(['']);
+      }
+    });
+  }
+
+  deleteAccount() {
+    this.userService.deleteUser(this.userId).subscribe({
+      next: () => {
+        localStorage.removeItem('role');
+        localStorage.removeItem('userId');
+        this.router.navigate(['/login']);
+        alert('Successfully delete account!');
       }
     });
   }

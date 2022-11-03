@@ -40,8 +40,6 @@ export class SignupComponent implements OnInit {
       role: this.role,
     }
 
-    console.log(data)
-
     this.authService.signUp(data).subscribe(res => {
       if(res == null) {
         alert("Registration failed");
