@@ -1,28 +1,31 @@
 {
   "users": [
     {
-      "id": "bd66c02e-afb7-35b9-2dc3-ac42c1442989",
-      "username": "admin",
-      "email": "admin@abv.bg",
-      "password": "123456",
-      "role": "User"
-    },
-    {
       "id": "07bc35c1-588e-3af1-97f1-8d1d05a676b0",
       "username": "company",
       "email": "company@abv.bg",
       "password": "123456",
       "role": "Company"
+    },
+    {
+      "id": "7de56a80-6dc7-d8c3-1813-44bc0b0b3a89",
+      "username": "admin",
+      "email": "admin@abv.bg",
+      "password": "123456",
+      "role": "User"
     }
   ],
   "jobs": [
     {
-      "title": "Junior C#",
+      "title": "C# Junior",
       "description": "Best",
       "type": "Part-time",
       "category": "Development",
-      "id": "c866896f-65a6-3730-2e20-3fdf1f79530a",
-      "likes": 0
+      "id": "0745099b-3f9f-5255-f406-ff768954bd5a",
+      "likes": [
+        "bd66c02e-afb7-35b9-2dc3-ac42c1442989",
+        "338abb43-7ec6-a30f-5f36-247fc1068d57"
+      ]
     }
   ]
 }
