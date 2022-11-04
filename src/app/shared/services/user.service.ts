@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User } from '../models/user.model';
+import { UserModel } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +11,15 @@ export class UserService {
 
   constructor(private httpClient : HttpClient) { }
 
-  getUserById(userId: string): Observable<User> {
-    return this.httpClient.get<User>(`${this.url}/${userId}`);
+  getUserById(userId: string): Observable<UserModel> {
+    return this.httpClient.get<UserModel>(`${this.url}/${userId}`);
   }
 
-  updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(`${this.url}/${user.id}`, user);
+  updateUser(user: UserModel): Observable<UserModel> {
+    return this.httpClient.put<UserModel>(`${this.url}/${user.id}`, user);
   }
 
-  deleteUser(userId: string): Observable<User> {
-    return this.httpClient.delete<User>(`${this.url}/${userId}`);
+  deleteUser(userId: string): Observable<UserModel> {
+    return this.httpClient.delete<UserModel>(`${this.url}/${userId}`);
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/shared/models/user.model';
+import { UserModel } from 'src/app/shared/models/user.model';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { UserService } from 'src/app/shared/services/user.service';
 })
 export class EditUserComponent implements OnInit {
   editForm!: FormGroup;
-  user!: User;
+  user!: UserModel;
   userId!: string;
 
   constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
@@ -21,7 +21,7 @@ export class EditUserComponent implements OnInit {
 
     if(this.userId) {
       this.userService.getUserById(this.userId).subscribe({
-        next: (response: User) => {
+        next: (response: UserModel) => {
           this.user = response;
 
           this.editForm = this.fb.group({

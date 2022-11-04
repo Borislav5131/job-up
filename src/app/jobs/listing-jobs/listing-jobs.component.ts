@@ -17,8 +17,9 @@ export class ListingJobsComponent implements OnInit {
 
   ngOnInit(): void {
     localStorage.getItem('role') === 'Company' ? this.isCompany = true : false;
+
     this.jobsService.getAllJobs().subscribe({
-      next: (response: any) => {
+      next: (response: JobModel[]) => {
         this.jobs = response;
       }
     });

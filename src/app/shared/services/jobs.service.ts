@@ -32,7 +32,7 @@ export class JobsService {
     return this.httpClient.put<JobModel>(`${this.url}/${model.id}`, model);
   }
 
-  delete(id: string): Observable<undefined> {
-    return this.httpClient.delete<undefined>(`${this.url}/${id}`);
+  delete(id: string): Observable<JobModel> {
+    return this.httpClient.delete<JobModel>(`${this.url}/${id}`);
   }
 }

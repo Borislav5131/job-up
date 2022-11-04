@@ -43,7 +43,7 @@ export class CreateJobComponent implements OnInit {
 
     if(id) {
       this.jobsService.getJobById(id).subscribe({
-        next: (response: any) => {
+        next: (response: JobModel) => {
           this.job = response;
           this.isEdit = true;
           this.buildForm();

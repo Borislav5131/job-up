@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/shared/models/user.model';
+import { UserModel } from 'src/app/shared/models/user.model';
 import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    const data: User = {
+    const data: UserModel = {
       id: '',
       username: this.username,
       email: this.email,
@@ -40,18 +40,17 @@ export class SignupComponent implements OnInit {
       role: this.role,
     }
 
-    this.authService.signUp(data).subscribe(res => {
-      if(res == null) {
-        alert("Registration failed");
-        this.ngOnInit();
-      }else {
-        console.log("Registration successful");
-        alert("Registration successful");
-        this.router.navigate(['/login']);
+    this.authService.signUp(data).subscribe({
+      next: (res: UserModel) => {
+        if(res == null) {
+          alert("Registration failed");
+          this.ngOnInit();
+        } else {
+          console.log("Registration successful");
+          alert("Registration successful");
+          this.router.navigate(['/login']);
+        }
       }
-    }, err => {
-      alert("Registration failed.");
-      this.ngOnInit();
     });
   }
 }
