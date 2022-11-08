@@ -60,6 +60,10 @@ export class CreateJobComponent implements OnInit {
     const data = {...this.createForm.value};
 
     if(data.id) {
+      data.likes = this.job.likes;
+      data.companyId = this.job.companyId;
+      data.isActive = this.job.isActive;
+
       this.jobsService.putJob(data).subscribe({
         next: () => {
           this.router.navigate(['/jobs']);
@@ -69,7 +73,7 @@ export class CreateJobComponent implements OnInit {
     else {
       this.jobsService.postJob(data).subscribe({
         next: () => {
-          this.router.navigate(['jobs']);
+          this.router.navigate(['/jobs']);
         }
       });
     }

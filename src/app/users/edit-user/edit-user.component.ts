@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserModel } from 'src/app/shared/models/user.model';
+import { JobsService } from 'src/app/shared/services/jobs.service';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Component({
@@ -14,7 +15,10 @@ export class EditUserComponent implements OnInit {
   user!: UserModel;
   userId!: string;
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {}
+  constructor(private fb: FormBuilder,
+     private userService: UserService,
+     private router: Router,
+     private jobsService: JobsService) {}
 
   ngOnInit(): void {
     this.userId = localStorage.getItem('userId')!;
@@ -60,14 +64,34 @@ export class EditUserComponent implements OnInit {
   }
 
   deleteAccount() {
-    this.userService.deleteUser(this.userId).subscribe({
-      next: () => {
-        localStorage.removeItem('role');
-        localStorage.removeItem('userId');
-        this.router.navigate(['/login']);
-        alert('Successfully delete account!');
-      }
-    });
+
+    if(this.user.role === 'Company') {
+      this.jobsService.getAllJobs().subscribe(response => {
+        let companyJobs = response.filter(j => j.companyId === this.user.id);
+
+        companyJobs.forEach(job => {
+          this.jobsService.delete(job.id).subscribe({});
+        });
+
+        this.userService.deleteUser(this.userId).subscribe({
+          next: () => {
+            localStorage.removeItem('role');
+            localStorage.removeItem('userId');
+            this.router.navigate(['/login']);
+            alert('Successfully delete account!');
+          }
+        });
+      });
+    } else {
+      this.userService.deleteUser(this.userId).subscribe({
+        next: () => {
+          localStorage.removeItem('role');
+          localStorage.removeItem('userId');
+          this.router.navigate(['/login']);
+          alert('Successfully delete account!');
+        }
+      });
+    }
   }
 
 }

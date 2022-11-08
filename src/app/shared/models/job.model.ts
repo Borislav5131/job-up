@@ -8,4 +8,6 @@ export interface JobModel {
   likes: string[],
   jobType : JobType,
   jobCategory: JobCategory,
+  companyId: string | null;
+  isActive: boolean;
 }

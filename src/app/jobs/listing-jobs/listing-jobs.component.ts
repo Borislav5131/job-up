@@ -11,12 +11,14 @@ import { JobsService } from 'src/app/shared/services/jobs.service';
 export class ListingJobsComponent implements OnInit {
   jobs!: any;
   isCompany!: boolean;
+  companyId!: string | null;
 
   constructor(private jobsService: JobsService,
               private router: Router) { }
 
   ngOnInit(): void {
     localStorage.getItem('role') === 'Company' ? this.isCompany = true : false;
+    this.companyId = localStorage.getItem('userId');
 
     this.jobsService.getAllJobs().subscribe({
       next: (response: JobModel[]) => {
@@ -25,16 +27,16 @@ export class ListingJobsComponent implements OnInit {
     });
   }
 
-  deleteJob(id: string) {
-    this.jobsService.delete(id).subscribe({
+  deleteJob(job: JobModel) {
+    this.jobsService.delete(job.id).subscribe({
       next: () => {
-        this.jobs = this.jobs.filter((j: { id: string; }) => j.id !== id);
+        this.jobs = this.jobs.filter((j: { id: string; }) => j.id !== job.id);
       }
     });
   }
 
-  editJob(id: string) {
-    this.router.navigate([`jobs/edit/${id}`]);
+  editJob(job: JobModel) {
+    this.router.navigate([`jobs/edit/${job.id}`]);
   }
 
   likeJob(job: JobModel) {
@@ -42,11 +44,32 @@ export class ListingJobsComponent implements OnInit {
 
     if(userId) {
       if(job.likes.includes(userId)) {
-        alert('You already like this job');
+        alert('You already like this job!');
+      }
+      else if(job.isActive === false) {
+        alert('Job is not active!')
       } else {
         job.likes.push(userId);
         this.jobsService.putJob(job).subscribe();
       }
     }
+  }
+
+  deactivate(job: JobModel) {
+    job.isActive = false;
+    this.jobsService.putJob(job).subscribe({
+      next: () => {
+        this.router.navigate(['/jobs']);
+      }
+    });
+  }
+
+  activate(job: JobModel) {
+    job.isActive = true;
+    this.jobsService.putJob(job).subscribe({
+      next: () => {
+        this.router.navigate(['/jobs']);
+      }
+    });
   }
 }
