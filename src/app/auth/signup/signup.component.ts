@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
       email: this.email,
       password: this.password,
       role: this.role,
+      jobPositions: [],
     }
 
     this.authService.signUp(data).subscribe({
