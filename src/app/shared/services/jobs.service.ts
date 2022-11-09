@@ -18,6 +18,7 @@ export class JobsService {
     data.likes = [];
     data.companyId = localStorage.getItem('userId');
     data.isActive = true;
+    data.candidates = {};
 
     return this.httpClient.post<JobModel>(this.url, data);
   }

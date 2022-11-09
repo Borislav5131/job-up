@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { EditUserComponent } from './users/edit-user/edit-user.component';
+import { CandidatesForJobComponent } from './jobs/candidates-for-job/candidates-for-job.component';
+import { UserAppliedJobsComponent } from './users/user-applied-jobs/user-applied-jobs.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { EditUserComponent } from './users/edit-user/edit-user.component';
     LoginComponent,
     SignupComponent,
     EditUserComponent,
+    CandidatesForJobComponent,
+    UserAppliedJobsComponent,
   ],
   imports: [
     BrowserModule,

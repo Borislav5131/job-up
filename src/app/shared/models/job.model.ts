@@ -10,4 +10,5 @@ export interface JobModel {
   jobCategory: JobCategory,
   companyId: string | null;
   isActive: boolean;
+  candidates: {[userId: string]: boolean}; //Applied candidates for job and if they are approved for job!!!
 }

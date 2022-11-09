@@ -17,9 +17,9 @@ export class CreateJobComponent implements OnInit {
   isEdit!: boolean;
 
   constructor(private formBuilder: FormBuilder,
-              private jobsService: JobsService,
-              private router: Router,
-              private route: ActivatedRoute) { }
+    private jobsService: JobsService,
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   public jobTypes(): Array<string> {
     const keys = Object.keys(JobType);
@@ -63,6 +63,7 @@ export class CreateJobComponent implements OnInit {
       data.likes = this.job.likes;
       data.companyId = this.job.companyId;
       data.isActive = this.job.isActive;
+      data.candidates = this.job.candidates;
 
       this.jobsService.putJob(data).subscribe({
         next: () => {
@@ -80,8 +81,6 @@ export class CreateJobComponent implements OnInit {
   }
 
   private buildForm(): void {
-    console.log(this.job)
-
     this.createForm = this.formBuilder.group({
       id: this.job.id,
       title: [this.job?.title, [Validators.required]],

@@ -1,32 +1,39 @@
 {
   "users": [
     {
-      "id": "7de56a80-6dc7-d8c3-1813-44bc0b0b3a89",
-      "username": "admin",
+      "id": "ea3e0829-597f-2655-0b63-e8103188229c",
+      "username": "user",
       "email": "admin@abv.bg",
       "password": "123456",
-      "role": "User"
+      "role": "User",
+      "jobPositions": [
+        "9430d5dc-0fb4-dffb-dea5-e288d4641711"
+      ]
     },
     {
-      "id": "eebbe67f-104c-8705-a650-c91d11883a47",
+      "id": "cd1ccfa9-96d2-4982-5eee-9a236aa649e9",
       "username": "company",
       "email": "company@abv.bg",
       "password": "123456",
-      "role": "Company"
+      "role": "Company",
+      "jobPositions": []
     }
   ],
   "jobs": [
     {
-      "title": "t",
-      "description": "t",
-      "type": "Full-time",
-      "category": "Office admistration",
-      "id": "f67f2bd4-1094-6bc1-0c7a-ffacfdef9451",
+      "title": "Java",
+      "description": "Hi",
+      "type": "Part-time",
+      "category": "Development",
+      "id": "9430d5dc-0fb4-dffb-dea5-e288d4641711",
       "likes": [
-        "7de56a80-6dc7-d8c3-1813-44bc0b0b3a89"
+        "ea3e0829-597f-2655-0b63-e8103188229c"
       ],
-      "companyId": "eebbe67f-104c-8705-a650-c91d11883a47",
-      "isActive": true
+      "companyId": "cd1ccfa9-96d2-4982-5eee-9a236aa649e9",
+      "isActive": true,
+      "candidates": {
+        "ea3e0829-597f-2655-0b63-e8103188229c": true
+      }
     }
   ]
 }

@@ -1,0 +1,21 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Type</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobsThatUserApplied; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ job.title }}</td>
+      <td>{{ job.description }}</td>
+      <td>{{ job.type }}</td>
+      <td>{{ job.category }}</td>
+      <td>{{ $any(job.candidates)[user.id] === true ? 'Yes' : 'No'}}</td>
+    </tr>
+  </tbody>
+</table>
