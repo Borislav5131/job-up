@@ -7,11 +7,12 @@
       "password": "123456",
       "role": "User",
       "jobPositions": [
-        "9430d5dc-0fb4-dffb-dea5-e288d4641711"
+        "9430d5dc-0fb4-dffb-dea5-e288d4641711",
+        "9436a969-af01-7274-de93-a0de1ba872c8"
       ]
     },
     {
-      "id": "cd1ccfa9-96d2-4982-5eee-9a236aa649e9",
+      "id": "41e5246f-51af-b1f8-228d-a2e56fb2ecf8",
       "username": "company",
       "email": "company@abv.bg",
       "password": "123456",
@@ -22,17 +23,39 @@
   "jobs": [
     {
       "title": "Java",
-      "description": "Hi",
+      "description": "Best for students!",
       "type": "Part-time",
       "category": "Development",
-      "id": "9430d5dc-0fb4-dffb-dea5-e288d4641711",
+      "id": "9edea23b-3dce-089a-663a-8a6aaa093666",
       "likes": [
         "ea3e0829-597f-2655-0b63-e8103188229c"
       ],
-      "companyId": "cd1ccfa9-96d2-4982-5eee-9a236aa649e9",
+      "companyId": "41e5246f-51af-b1f8-228d-a2e56fb2ecf8",
+      "isActive": true,
+      "candidates": {}
+    },
+    {
+      "id": "3c23f83e-2ff3-638c-ab38-b9c73a95676d",
+      "title": "C# Junior",
+      "description": "Our company is master in C#",
+      "type": "Full-time",
+      "category": "Backend Development",
+      "likes": [],
+      "companyId": "41e5246f-51af-b1f8-228d-a2e56fb2ecf8",
+      "isActive": false,
+      "candidates": {}
+    },
+    {
+      "title": "Swift Junior",
+      "description": "IOS Development",
+      "type": "Remote",
+      "category": "UX Design",
+      "id": "9436a969-af01-7274-de93-a0de1ba872c8",
+      "likes": [],
+      "companyId": "41e5246f-51af-b1f8-228d-a2e56fb2ecf8",
       "isActive": true,
       "candidates": {
-        "ea3e0829-597f-2655-0b63-e8103188229c": true
+        "ea3e0829-597f-2655-0b63-e8103188229c": false
       }
     }
   ]
